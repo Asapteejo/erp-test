@@ -1,0 +1,20 @@
+{
+  "welcome": "Welcome to TeeBot Acadion",
+  "hero_title": "Your School. Your Brand. Your Domain.",
+  "hero_subtitle": "Accept payments directly to your bank • Custom website • No middleman",
+  "apply_now": "Apply Now",
+  "custom_domain": "Custom Domain (Pro & Premium)",
+  "pricing": "Pricing",
+  "get_started": "Get Started Free",
+  "about_us": "About Us",
+  "academics": "Academics",
+  "contact": "Contact",
+  "faq": "FAQ",
+  "login": "Login",
+  "signup": "Sign Up",
+  "save_changes": "Save All Changes",
+  "upgrade_required": "Upgrade Required",
+  "pro_feature": "This is a Pro/Premium feature",
+  "footer_about": "Leading institution in health sciences and technology education",
+  "copyright": "© {year} {schoolName}. All rights reserved."
+}
