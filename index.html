@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="School Admin Dashboard" />
+
+    <!-- Default Favicon (fallback) -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" id="default-favicon" />
+
+    <!-- Dynamic Favicon (will be replaced per school) -->
+    <link rel="icon" href="/vite.svg" id="favicon" />
+
+    <title>School Admin</title>
+
+    <!-- Dynamic Favicon + Title Loader -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const path = window.location.pathname;
+        const match = path.match(/\/school\/([a-zA-Z0-9-]+)/);
+        if (match) {
+          const schoolId = match[1];
+
+          // Change favicon
+          fetch(`/api/school/favicon?schoolId=${schoolId}`)
+            .then(r => r.text())
+            .then(url => {
+              if (url && url !== 'null' && url.trim() !== '') {
+                document.getElementById('favicon').href = url;
+              }
+            })
+            .catch(() => console.log('Using default favicon'));
+
+          // Change title
+          fetch(`/api/school/name?schoolId=${schoolId}`)
+            .then(r => r.text())
+            .then(name => {
+              if (name && name !== 'null') {
+                document.title = `${name} • Admin`;
+              }
+            })
+            .catch(() => {});
+        }
+      });
+    </script>
+  </head>
+  <body class="dark bg-background text-foreground min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
